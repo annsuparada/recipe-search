@@ -1,5 +1,13 @@
 .App {
-  text-align: center;
+  /* text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; */
+  
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 

@@ -23,8 +23,8 @@ const MainSearch = () => {
     }, [])
 
     return (
-        <div>
-            Main Search
+        <div className="App">
+           
             {console.log(recipes)}
             {recipes.map(recipe => (
                 <Recipe 
