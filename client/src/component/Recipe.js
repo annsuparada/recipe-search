@@ -3,7 +3,7 @@ import React from 'react';
 const Recipe = ({ id, title, image, nutrients }) => {
 
     return (
-        <div style={{maxWidth: "320px", margin:"5px"}}>
+        <div>
             <img src={image} />
             <h4>{title}</h4>
             <p>Calrories: {nutrients[0].amount} {nutrients[0].unit}</p>

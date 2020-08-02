@@ -1,32 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { getRecipes } from '../store/actions/index';
 import Recipe from './Recipe';
-import axios from 'axios';
 
-const MainSearch = () => {
+const MainSearch = (props) => {
     const [recipes, setRecipes] = useState([]);
-
-    const API_KEY = process.env.REACT_APP_API_KEY
-    const BASE_URL = "https://api.spoonacular.com"
-    const getRecipes = () => {
-        axios
-        .get(`${BASE_URL}/recipes/complexSearch?query=pasta&number=20&addRecipeNutrition=true&apiKey=${API_KEY}`)
-        .then(response => {
-            setRecipes(response.data.results)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }
-
     useEffect(() => {
-        getRecipes()
+        props.getRecipes()
     }, [])
 
     return (
         <div className="App">
            
-            {console.log(recipes)}
-            {recipes.map(recipe => (
+            {console.log(props.recipes)}
+            {props.recipes.map(recipe => (
                 <Recipe 
                     key={recipe.id}
                     id={recipe.id}
@@ -38,5 +26,14 @@ const MainSearch = () => {
         </div>
       );
 }
- 
-export default MainSearch;
+
+const mapStateToProps = state => ({
+    recipes: state.recipesReducer.recipes
+})
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        { getRecipes}
+    ) (MainSearch)
+);
