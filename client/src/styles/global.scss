@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+@import './_variable';
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	padding-top: 64px;
+	background-color: $background-color;
+}
+.main-container {
+	max-width: 1200px;
+	margin: 0 auto;
+    padding: 60px 15px 60px 15px;
+}
+
+a {
+    font-family: 'Noto Sans KR', sans-serif;
+	text-decoration: none;
+	color: inherit;
+	user-select: none;
+	cursor: pointer;
+}
+
+i {
+	font-style: italic;
+}
+
+p {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.5rem;
+}
+
+b {
+	font-weight: bold;
+}
+
+h1 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 4.8rem;
+}
+
+h2 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 4rem;
+}
+
+h3 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 3.6rem;
+}
+
+h4 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 2.4rem;
+}
+
+h5 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+h6 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
+input {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.6rem;
+	padding: 10px 15px;
+	outline: none;
+	height: 35px;
+	border-radius: 5px;
+	border: none;
+}
+input:hover {
+	border: 1px solid $black;
+	background-color: #e6e5e6;
+}
+
+label {
+	font-size: 2rem;
+	padding: 5px 5px 5px 0;
+}
+
+textarea {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.6rem;
+	padding: 10px 15px;
+	margin: 10px 0 0;
+	outline: none;
+	border-radius: 5px;
+}
+
+select {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.6rem;
+	border-radius: 5px;
+
+}
+

@@ -11,8 +11,7 @@ const MainSearch = (props) => {
     }, [])
 
     return (
-        <div className="App">
-           
+        <div>
             {console.log(props.recipes)}
             {props.recipes.map(recipe => (
                 <Recipe 
