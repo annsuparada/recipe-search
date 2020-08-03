@@ -11,7 +11,7 @@
 ### Display data
 - [x] Handle loading
 - [x] Handle error
-- [ ] Display search results
+- [X] Display search results
 - [ ] Display recipe by id
     - [ ] Yield 
     - [ ] cook time

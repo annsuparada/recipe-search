@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getRecipes } from '../store/actions/index';
-import Recipe from './Recipe';
+import RecipeCard from './RecipeCard';
 import { Spin, Alert } from 'antd';
 
 const MainSearch = (props) => {
     const [recipes, setRecipes] = useState([]);
+
     useEffect(() => {
         props.getRecipes()
     }, [])
@@ -30,17 +31,16 @@ const MainSearch = (props) => {
                                 style={{ width: "100%" }}
                             /> :
                             <>
-                            
+
                             {/* display data */}
                                 {
                                     props.recipes.map(recipe => (
-                                        <Recipe
+                                        <RecipeCard
                                             key={recipe.id}
                                             id={recipe.id}
                                             title={recipe.title}
                                             nutrients={recipe.nutrition.nutrients}
                                             image={recipe.image}
-                                            isLoading={props.isLoading}
                                         />
                                     ))
                                 }

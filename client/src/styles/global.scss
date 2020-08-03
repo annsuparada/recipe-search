@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import './_variable';
 
 html {
@@ -8,6 +8,7 @@ html {
 body {
 	padding-top: 64px;
 	background-color: $background-color;
+	font-family: 'Open Sans', sans-serif;
 }
 .main-container {
 	max-width: 1300px;
@@ -17,7 +18,6 @@ body {
 }
 
 a {
-    font-family: 'Noto Sans KR', sans-serif;
 	text-decoration: none;
 	color: inherit;
 	user-select: none;
@@ -29,7 +29,6 @@ i {
 }
 
 p {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 1.5rem;
 	margin: 0;
 }
@@ -39,43 +38,36 @@ b {
 }
 
 h1 {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 4.8rem;
 }
 
 h2 {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 4rem;
 }
 
 h3 {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 3.6rem;
 }
 
 h4 {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 2.4rem;
 }
 
 h5 {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 2rem;
 }
 
 h6 {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 1.8rem;
 	font-weight: 500;
 }
 
 input {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 1.6rem;
 	padding: 10px 15px;
 	outline: none;
@@ -94,7 +86,6 @@ label {
 }
 
 textarea {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 1.6rem;
 	padding: 10px 15px;
 	margin: 10px 0 0;
@@ -103,7 +94,6 @@ textarea {
 }
 
 select {
-	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 1.6rem;
 	border-radius: 5px;
 }
