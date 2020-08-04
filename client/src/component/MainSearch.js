@@ -6,7 +6,6 @@ import RecipeCard from './RecipeCard';
 import { Spin, Alert } from 'antd';
 
 const MainSearch = (props) => {
-    const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
         props.getRecipes()
