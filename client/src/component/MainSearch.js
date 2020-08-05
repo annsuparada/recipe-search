@@ -38,7 +38,6 @@ const MainSearch = (props) => {
                                             key={recipe.id}
                                             id={recipe.id}
                                             title={recipe.title}
-                                            nutrients={recipe.nutrition.nutrients}
                                             image={recipe.image}
                                         />
                                     ))

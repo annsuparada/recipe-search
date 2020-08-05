@@ -90,7 +90,7 @@ export const getRecipeById = (id) => dispatch => {
 
 export const FETCH_NEXT_RECIPES = "FETCH_NEXT_RECIPES";
 
-export const getNextRecipes = (id) => async (dispatch) => {
+export const getNextRecipes = () => async (dispatch) => {
 
     const localStorageKey = `/recipes/complexSearch?query=beef&number=20&addRecipeNutrition=true&apiKey=${API_KEY}`;
 
