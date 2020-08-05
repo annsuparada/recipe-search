@@ -2,6 +2,7 @@ import {
     FETCH_RECIPES_START,
     FETCH_RECIPES_SUCCESS,
     FETCH_RECIPES_FAILURE,
+    FETCH_NEXT_RECIPES,
     FETCH_RECIPE_BY_ID_START,
     FETCH_RECIPE_BY_ID_SUCCESS,
     FETCH_RECIPE_BY_ID_FAILURE,
@@ -11,7 +12,8 @@ export const initialState = {
     recipes: [],
     isLoading: false,
     error: '',
-    recipe: []
+    recipe: [],
+    nextRecipes: [],
 }
 
 export const recipesReducer = (state = initialState, action) => {
@@ -25,13 +27,19 @@ export const recipesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                recipes: action.payload
+                recipes: action.payload.filter(item => item.analyzedInstructions.length > 0)
             }
         case FETCH_RECIPES_FAILURE:
             return {
                 ...state,
                 isLoading: false,
                 error: 'API is down. Please try again.'
+            }
+        case FETCH_NEXT_RECIPES:
+            return {
+                ...state,
+                isLoading: false,
+                nextRecipes: action.payload
             }
 
         case FETCH_RECIPE_BY_ID_START:

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getRecipes } from '../store/actions/index';
@@ -13,7 +13,7 @@ const MainSearch = (props) => {
 
     return (
         <div>
-            {console.log(props.recipes)}
+        
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
 
                 {/* handle loading */}
