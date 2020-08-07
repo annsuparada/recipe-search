@@ -9,6 +9,7 @@ const MainSearch = (props) => {
 
     useEffect(() => {
         props.getRecipes()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

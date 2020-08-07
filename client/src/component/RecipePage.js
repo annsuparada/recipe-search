@@ -14,6 +14,7 @@ const RecipePage = (props) => {
 
     useEffect(() => {
         props.getRecipeById(id)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -79,7 +80,7 @@ const RecipePage = (props) => {
                                 }
                             </div>
                             <div className="right">
-                                <NextRecipes />
+                                <NextRecipes currentId={id}/>
                             </div>
 
 
