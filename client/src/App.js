@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import MainSearch from "./component/MainSearch";
-import Navigation from './component/navigation/Navigation';
-import Footer from './component/footer/Footer';
-import RecipePage from './component/RecipePage';
+import MainSearch from "./components/MainSearch";
+import Navigation from './components/navigation/Navigation';
+import Footer from './components/footer/Footer';
+import RecipePage from './components/RecipePage';
 
 function App() {
   return (

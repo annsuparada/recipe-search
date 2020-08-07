@@ -12,10 +12,7 @@ const NextRecipes = (props) => {
         props.getRecipes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-// const nextPage = (id) => {
-//     history.push
-// }
+    
     return (
         <div>
             <h4>More beef recipes</h4>

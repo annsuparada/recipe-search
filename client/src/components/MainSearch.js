@@ -2,7 +2,7 @@ import React, {  useEffect } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getRecipes } from '../store/actions/index';
-import RecipeCard from './RecipeCard';
+import RecipeCard from './CardComponents/RecipeCard';
 import { Spin, Alert } from 'antd';
 
 const MainSearch = (props) => {
