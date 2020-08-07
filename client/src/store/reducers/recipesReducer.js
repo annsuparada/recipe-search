@@ -14,6 +14,7 @@ export const initialState = {
     error: '',
     recipe: [],
     nextRecipes: [],
+    test: []
 }
 
 export const recipesReducer = (state = initialState, action) => {
@@ -27,7 +28,7 @@ export const recipesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                recipes: action.payload.filter(item => item.analyzedInstructions.length > 0)
+                recipes: action.payload.filter(item => item.analyzedInstructions.length > 0),
             }
         case FETCH_RECIPES_FAILURE:
             return {
@@ -39,7 +40,8 @@ export const recipesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                nextRecipes: action.payload
+                nextRecipes: action.payload,
+                test: action.payload
             }
 
         case FETCH_RECIPE_BY_ID_START:

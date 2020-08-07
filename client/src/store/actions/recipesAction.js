@@ -103,7 +103,7 @@ export const getNextRecipes = () => async (dispatch) => {
     } else {
         axios.get(`${BASE_URL}${localStorageKey}`)
             .then(response => {
-                console.log('FETCHED FROM API', response.data);
+                console.log('FETCHED FROM API == next recipes', response.data);
                 dispatch({
                     type: FETCH_NEXT_RECIPES,
                     payload: response.data

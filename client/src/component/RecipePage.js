@@ -14,7 +14,6 @@ const RecipePage = (props) => {
 
     useEffect(() => {
         props.getRecipeById(id)
-        props.getNextRecipes(id)
     }, [])
 
     return (
