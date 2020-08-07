@@ -7,10 +7,10 @@ export const FETCH_RECIPES_START = "FETCH_RECIPES_START";
 export const FETCH_RECIPES_SUCCESS = "FETCH_RECIPES_SUCCESS";
 export const FETCH_RECIPES_FAILURE = "FETCH_RECIPES_FAILURE";
 
-export const getRecipes = () => async (dispatch) => {
+export const getRecipes = (searchTerm) => async (dispatch) => {
     dispatch({ type: FETCH_RECIPES_START })
 
-    const localStorageKey = `/recipes/complexSearch?query=beef&number=20&addRecipeNutrition=true&apiKey=${API_KEY}`;
+    const localStorageKey = `/recipes/complexSearch?query=${searchTerm}&number=20&addRecipeNutrition=true&apiKey=${API_KEY}`;
 
     if (localStorage.getItem(localStorageKey)) {
         console.log('USED LOCAL CACHE');
@@ -18,23 +18,14 @@ export const getRecipes = () => async (dispatch) => {
             type: FETCH_RECIPES_SUCCESS,
             payload: JSON.parse(localStorage.getItem(localStorageKey))
         });
-        dispatch({
-            type: FETCH_NEXT_RECIPES,
-            payload: FETCH_NEXT_RECIPES
-        });
     } else {
-        axios.get(`${BASE_URL}/recipes/complexSearch?query=beef&number=20&addRecipeNutrition=true&apiKey=${API_KEY}`)
+        axios.get(`${BASE_URL}/recipes/complexSearch?query=${searchTerm}&number=20&addRecipeNutrition=true&apiKey=${API_KEY}`)
             .then(response => {
                 console.log('FETCHED FROM API');
                 dispatch({
                     type: FETCH_RECIPES_SUCCESS,
                     payload: response.data.results
                 });
-                dispatch({
-                    type: FETCH_NEXT_RECIPES,
-                    payload: response.data.results
-                });
-
                 localStorage.setItem(localStorageKey, JSON.stringify(response.data.results));
 
             })
@@ -84,37 +75,6 @@ export const getRecipeById = (id) => dispatch => {
                     payload: error
                 })
             })
-    }
-
-}
-
-export const FETCH_NEXT_RECIPES = "FETCH_NEXT_RECIPES";
-
-export const getNextRecipes = () => async (dispatch) => {
-
-    const localStorageKey = `/recipes/complexSearch?query=beef&number=20&addRecipeNutrition=true&apiKey=${API_KEY}`;
-
-    if (localStorage.getItem(localStorageKey)) {
-        console.log('USED LOCAL CACHE');
-        dispatch({
-            type: FETCH_NEXT_RECIPES,
-            payload: JSON.parse(localStorage.getItem(localStorageKey))
-        });
-    } else {
-        axios.get(`${BASE_URL}${localStorageKey}`)
-            .then(response => {
-                console.log('FETCHED FROM API == next recipes', response.data);
-                dispatch({
-                    type: FETCH_NEXT_RECIPES,
-                    payload: response.data
-                });
-             
-
-                localStorage.setItem(localStorageKey, JSON.stringify(response.data));
-
-            })
-            .catch(error => {console.log(error)})
-            
     }
 
 }

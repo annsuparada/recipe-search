@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getRecipeById, getNextRecipes } from '../store/actions/index';
+import { getRecipeById } from '../store/actions/index';
 import { Spin, Alert } from 'antd';
 import NextRecipes from './NextRecipes';
 import ImageCard from './CardComponents/ImageCard';
@@ -77,6 +77,6 @@ const mapStateToProps = state => ({
 export default withRouter(
     connect(
         mapStateToProps,
-        { getRecipeById, getNextRecipes }
+        { getRecipeById }
     )(RecipePage)
 );

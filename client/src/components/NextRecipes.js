@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
-import { getNextRecipes, getRecipes } from '../store/actions/index';
+import { getRecipes } from '../store/actions/index';
 import { Card } from 'antd';
 const { Meta } = Card;
 
@@ -8,7 +8,6 @@ const NextRecipes = (props) => {
 
     const currentId = props.currentId;
     useEffect(() => {
-        props.getNextRecipes(currentId)
         props.getRecipes()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -36,14 +35,11 @@ const NextRecipes = (props) => {
 }
 
 const mapStateToProps = state => ({
-    nextRecipes: state.recipesReducer.nextRecipes,
     recipes: state.recipesReducer.recipes,
-    test: state.recipesReducer.test,
-
 })
 
 export default 
     connect(
         mapStateToProps,
-        { getNextRecipes, getRecipes }
+        { getRecipes }
     )(NextRecipes)
