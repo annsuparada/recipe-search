@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Input, Button, Form, Row, Col } from 'antd';
 
 
@@ -7,7 +7,7 @@ const SearchForm = (props) => {
 
     return (
         <div className="search">
-            {console.log('searchTerm==>', props)}
+            {console.log('searchTerm==>', props.searchTerm)}
             {/* <Search
                 placeholder="input search text"
                 enterButton="Search"
@@ -33,7 +33,7 @@ const SearchForm = (props) => {
                         <Button
                             type="primary"
                             htmlType="submit"
-                            onSubmit={props.getSearch}
+                            onClick={props.getSearch}
                             style={{ marginLeft: "10px" }}
                         >
                             Search

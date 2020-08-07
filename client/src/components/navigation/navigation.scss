@@ -9,4 +9,18 @@
     -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
     top: 0;
+
+    .nav {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        .rigth-nav {
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }

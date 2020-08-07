@@ -21,7 +21,8 @@ const MainSearch = (props) => {
         props.getRecipes(query.ingredeint)
     }
     const getSearch = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
+        console.log('get search', state.searchTerm)
         setQuery({ ingredeint: state.searchTerm})
     }
 
@@ -31,6 +32,7 @@ const MainSearch = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
     console.log('query.ingredeint*****', query.ingredeint)
+
     
     return (
         <div>
