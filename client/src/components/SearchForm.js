@@ -21,7 +21,7 @@ const SearchForm = (props) => {
                 <Row>
                     <Col>
                         <Input
-                            placeholder="Find recipes"
+                            placeholder="Find a recipe"
                             type="text"
                             name="searchTerm"
                             value={props.searchTerm}

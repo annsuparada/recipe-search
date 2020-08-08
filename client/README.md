@@ -12,16 +12,16 @@
 - [x] Handle loading
 - [x] Handle error
 - [X] Display search results
-- [ ] Display recipe by id
-    - [ ] Yield 
-    - [ ] cook time
-    - [ ] ingredients
-    - [ ] instructions
-    - [ ] nutrition
-    - [ ] recommend meals
+- [x] Display recipe by id
+    - [x] Yield 
+    - [x] cook time
+    - [x] ingredients
+    - [x] instructions
+    - [x] nutrition
+    - [x] recommend meals
 
 ### Search form
-- [ ] Search by ingredients
+- [x] Search by ingredients
 - [ ] Search by calories
 - [ ] Search by nutrition
 - [ ] Filter by diet plants

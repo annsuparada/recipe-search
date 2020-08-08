@@ -5,9 +5,10 @@ import { Card } from 'antd';
 const { Meta } = Card;
 
 const RecipeCard = (props) => {
+   
     return (
         <div>
-            <Link to={`/recipe/${props.id}`}>
+            <Link to={`/recipe/${props.query}/${props.id}`}>
             <Card
                 hoverable
                 style={{ maxWidth: 290, marginBottom: 20}}

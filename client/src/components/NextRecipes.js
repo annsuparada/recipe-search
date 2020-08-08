@@ -8,13 +8,13 @@ const NextRecipes = (props) => {
 
     const currentId = props.currentId;
     useEffect(() => {
-        props.getRecipes()
+        props.getRecipes(props.query)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
+    console.log('==',props.query)
     return (
         <div>
-            <h4>More beef recipes</h4>
+            <h4>More Recipes</h4>
             {props.recipes.filter(item => item.id !== Number(currentId)).slice(0,5).map(item => (
                 <div key={item.id}>
                     <a href={`/recipe/${item.id}`}>

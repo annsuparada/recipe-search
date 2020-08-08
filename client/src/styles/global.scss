@@ -116,11 +116,17 @@ img {
 	justify-content: space-evenly;
 }
 
+.main-search {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .search {
 	// background-color: lightgray;
-	min-height: 10vh;
+	min-height: 5vh;
 	padding: 20px;
-	margin-bottom: 30px;
+	// margin-bottom: 30px;
 	display: flex;
 	justify-content: space-between;
 }

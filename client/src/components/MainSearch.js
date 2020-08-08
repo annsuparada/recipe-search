@@ -8,7 +8,7 @@ import SearchForm from './SearchForm';
 
 const MainSearch = (props) => {
     const [state, setState] = useState({searchTerm: ""})
-    const [query, setQuery] = useState({ingredeint: "beef"})
+    const [query, setQuery] = useState({ingredeint: ""})
 
     const searchHandleChange = (e) => {
         setState({
@@ -20,14 +20,11 @@ const MainSearch = (props) => {
         // event.preventDefault();
         props.getRecipes(query.ingredeint)
     }
-    const getSearch = (e) => {
-        // e.preventDefault()
-        console.log('get search', state.searchTerm)
+    const getSearch = () => {
         setQuery({ ingredeint: state.searchTerm})
     }
 
     useEffect(() => {
-        // props.getRecipes(state.searchTerm)
         handleSubmit()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
@@ -35,9 +32,9 @@ const MainSearch = (props) => {
 
     
     return (
-        <div>
+        <div className="main-search">
             {/* handle loading */}
-            {props.isLoading ? <Spin size="large" tip="Loading..." style={{ marginTop: "300px" }} /> :
+            {props.isLoading ? <Spin size="large" tip="Loading..." style={{ margin: "300px" }} /> :
                 <>
 
                     {/* handle error */}

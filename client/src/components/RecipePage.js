@@ -14,7 +14,7 @@ const RecipePage = (props) => {
     const id = props.match.params.id;
     const info = props.recipe;
     const nutrition = info.nutrition;
-
+    const query= props.match.params.query;
     useEffect(() => {
         props.getRecipeById(id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -53,9 +53,13 @@ const RecipePage = (props) => {
                                 <NutritionCard
                                     nutrition={nutrition}
                                 />
+                                <p>Source: <a href={info && info.sourceUrl} target="_blank" rel="noopener noreferrer">{info && info.sourceName}</a></p>
                             </div>
                             <div className="right">
-                                <NextRecipes currentId={id} />
+                                <NextRecipes 
+                                    currentId={id}
+                                    query={query}
+                                />
                             </div>
 
                         </>
