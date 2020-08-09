@@ -8,10 +8,12 @@ export const FETCH_RECIPES_START = "FETCH_RECIPES_START";
 export const FETCH_RECIPES_SUCCESS = "FETCH_RECIPES_SUCCESS";
 export const FETCH_RECIPES_FAILURE = "FETCH_RECIPES_FAILURE";
 
+const listCount = 20;
+
 export const getRecipes = (searchTerm) => async (dispatch) => {
     dispatch({ type: FETCH_RECIPES_START })
 
-    const localStorageKey = `/recipes/complexSearch?query=${searchTerm}&number=100&addRecipeNutrition=true&apiKey=${API_KEY}`;
+    const localStorageKey = `/recipes/complexSearch?query=${searchTerm}&number=${listCount}&addRecipeNutrition=true&apiKey=${API_KEY}`;
 
     if (localStorage.getItem(localStorageKey)) {
         console.log('USED LOCAL CACHE');
@@ -20,7 +22,7 @@ export const getRecipes = (searchTerm) => async (dispatch) => {
             payload: JSON.parse(localStorage.getItem(localStorageKey))
         });
     } else {
-        axios.get(`${BASE_URL}/recipes/complexSearch?query=${searchTerm}&number=100&addRecipeNutrition=true&apiKey=${API_KEY}`)
+        axios.get(`${BASE_URL}/recipes/complexSearch?query=${searchTerm}&number=${listCount}&addRecipeNutrition=true&apiKey=${API_KEY}`)
             .then(response => {
                 console.log('FETCHED FROM API');
                 dispatch({
