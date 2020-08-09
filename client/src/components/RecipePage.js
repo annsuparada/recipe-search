@@ -15,11 +15,12 @@ const RecipePage = (props) => {
     const info = props.recipe;
     const nutrition = info.nutrition;
     const query= props.match.params.query;
+    
     useEffect(() => {
         props.getRecipeById(id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
+   
     return (
         <div className="recipe-page">
             {props.isLoading ? <Spin size="large" tip="Loading..." style={{ marginTop: "300px" }} /> :

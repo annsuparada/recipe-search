@@ -123,10 +123,16 @@ img {
 }
 
 .search {
-	// background-color: lightgray;
 	min-height: 5vh;
 	padding: 20px;
-	// margin-bottom: 30px;
 	display: flex;
 	justify-content: space-between;
+}
+
+@media #{$mobile} {
+	.search {
+		flex-direction: column;
+		align-items: center;
+		padding: 15px
+	}
 }

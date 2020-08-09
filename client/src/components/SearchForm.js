@@ -7,16 +7,7 @@ const SearchForm = (props) => {
 
     return (
         <div className="search">
-            {console.log('searchTerm==>', props.searchTerm)}
-            {/* <Search
-                placeholder="input search text"
-                enterButton="Search"
-                size="large"
-                name="searchTerm"
-                onSearch={() => props.handleSubmit()}
-                onChange={props.searchHandleChange}
-            /> */}
-            <h6><b>Search result:</b> {props.query}</h6>
+            <h6><b>Search result:</b> {props.prevSearch}</h6>
             <Form onSubmit={props.getSearch} >
                 <Row>
                     <Col>

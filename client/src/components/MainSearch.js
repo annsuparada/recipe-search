@@ -9,6 +9,8 @@ import SearchForm from './SearchForm';
 const MainSearch = (props) => {
     const [state, setState] = useState({searchTerm: ""})
     const [query, setQuery] = useState({ingredeint: ""})
+    
+    const prevSearch = localStorage.getItem("lastKey");
 
     const searchHandleChange = (e) => {
         setState({
@@ -17,18 +19,21 @@ const MainSearch = (props) => {
         })
     }
     const handleSubmit = () => {
-        // event.preventDefault();
-        props.getRecipes(query.ingredeint)
+        if (prevSearch !== null) {
+            props.getRecipes(prevSearch)
+        } else {
+            props.getRecipes(query.ingredeint)
+        }
     }
     const getSearch = () => {
         setQuery({ ingredeint: state.searchTerm})
+        localStorage.setItem('lastKey', state.searchTerm)
     }
 
     useEffect(() => {
         handleSubmit()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
-    console.log('query.ingredeint*****', query.ingredeint)
 
     
     return (
@@ -55,6 +60,7 @@ const MainSearch = (props) => {
                                 handleSubmit={handleSubmit}
                                 getSearch={getSearch}
                                 query={query.ingredeint}
+                                prevSearch={prevSearch}
                             />
                             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
                                 {
@@ -64,7 +70,7 @@ const MainSearch = (props) => {
                                             id={recipe.id}
                                             title={recipe.title}
                                             image={recipe.image}
-                                            query={query.ingredeint}
+                                            prevSearch={prevSearch}
                                         />
                                     ))
                                 }

@@ -11,13 +11,13 @@ const NextRecipes = (props) => {
         props.getRecipes(props.query)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    console.log('==',props.query)
+    
     return (
         <div>
             <h4>More Recipes</h4>
             {props.recipes.filter(item => item.id !== Number(currentId)).slice(0,5).map(item => (
                 <div key={item.id}>
-                    <a href={`/recipe/${item.id}`}>
+                    <a href={`/recipe/${props.query}/${item.id}`}>
                         <Card
                             hoverable
                             style={{ maxWidth: 290, marginBottom: 20 }}

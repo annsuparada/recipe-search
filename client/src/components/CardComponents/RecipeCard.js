@@ -8,7 +8,7 @@ const RecipeCard = (props) => {
    
     return (
         <div>
-            <Link to={`/recipe/${props.query}/${props.id}`}>
+            <Link to={`/recipe/${props.prevSearch}/${props.id}`}>
             <Card
                 hoverable
                 style={{ maxWidth: 290, marginBottom: 20}}

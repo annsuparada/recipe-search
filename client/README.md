@@ -4,8 +4,11 @@
 - [x] Create global file
 - [x] Create _variable file
 - [x] Create layout for container, navigation, footer
-- [ ] Mobile viwe
-- [ ] Desktop viwe
+- [x] Navigation - logo
+- [x] Footer - copyrigth / create by
+- [x] Mobile viwe
+- [x] Desktop viwe
+
 
 
 ### Display data
@@ -22,10 +25,7 @@
 
 ### Search form
 - [x] Search by ingredients
-- [ ] Search by calories
-- [ ] Search by nutrition
-- [ ] Filter by diet plants
-- [ ] Filter by allergy ingredients
+
 
  
 # To-do Lists V2
@@ -36,3 +36,9 @@
 - [ ] create your own recipes
 - [ ] Shopping list
 
+
+### Search form
+- [ ] Search by calories
+- [ ] Search by nutrition
+- [ ] Filter by diet plants
+- [ ] Filter by allergy ingredients
