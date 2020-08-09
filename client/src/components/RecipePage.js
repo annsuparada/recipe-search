@@ -8,7 +8,7 @@ import ImageCard from './CardComponents/ImageCard';
 import IngredientsCard from './CardComponents/IngredientsCard';
 import DirectionsCard from './CardComponents/DirectionsCard';
 import NutritionCard from './CardComponents/NutritionCard';
-
+import { Button } from 'antd';
 
 const RecipePage = (props) => {
     const id = props.match.params.id;
@@ -20,6 +20,10 @@ const RecipePage = (props) => {
         props.getRecipeById(id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+    const goBack = () => {
+        console.log('test')
+        props.history.goBack()
+    }
    
     return (
         <div className="recipe-page">
@@ -35,6 +39,7 @@ const RecipePage = (props) => {
                         /> :
                         <>
                             <div className="left">
+                            <Button onClick={goBack} size="small" style={{marginBottom: '10px'}}>Back</Button>
                                 <ImageCard
                                     title={info && info.title}
                                     image={info && info.image}

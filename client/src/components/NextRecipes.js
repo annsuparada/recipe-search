@@ -11,25 +11,29 @@ const NextRecipes = (props) => {
         props.getRecipes(props.query)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
-    return (
-        <div>
-            <h4>More Recipes</h4>
-            {props.recipes.filter(item => item.id !== Number(currentId)).slice(0,5).map(item => (
-                <div key={item.id}>
-                    <a href={`/recipe/${props.query}/${item.id}`}>
-                        <Card
-                            hoverable
-                            style={{ maxWidth: 290, marginBottom: 20 }}
-                            cover={<img alt={item.title} src={item.image} />}
-                        >
-                            <Meta title={item.title} />
-                        </Card>
-                    </a>
-                </div>
-            ))}
 
-            
+    return (
+        <div className="next-recipe-container">
+            <h4>More Recipes</h4>
+            <div className="next-recipe-card">
+
+                {props.recipes.filter(item => item.id !== Number(currentId))
+                    .slice(0, 6).map(item => (
+                        <div key={item.id}>
+                            <a href={`/recipe/${props.query}/${item.id}`}>
+                                <Card
+                                    hoverable
+                                    style={{ marginBottom: 20 }}
+                                    cover={<img alt={item.title} src={item.image} />}
+                                >
+                                    <Meta title={item.title} />
+                                </Card>
+                            </a>
+                        </div>
+                    ))}
+            </div>
+
+
         </div>
     );
 }
@@ -38,7 +42,7 @@ const mapStateToProps = state => ({
     recipes: state.recipesReducer.recipes,
 })
 
-export default 
+export default
     connect(
         mapStateToProps,
         { getRecipes }

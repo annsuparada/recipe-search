@@ -8,7 +8,7 @@ import SearchForm from './SearchForm';
 
 const MainSearch = (props) => {
     const [state, setState] = useState({searchTerm: ""})
-    const [query, setQuery] = useState({ingredeint: ""})
+    const [query, setQuery] = useState({ingredeint: "pizza"})
     
     const prevSearch = localStorage.getItem("lastKey");
 

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Input, Button, Form, Row, Col } from 'antd';
-
+import { withRouter } from "react-router-dom";
 
 const SearchForm = (props) => {
-
-
+    
     return (
         <div className="search">
             <h6><b>Search result:</b> {props.prevSearch}</h6>
@@ -36,4 +35,4 @@ const SearchForm = (props) => {
     );
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);
