@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'antd';
 
 const ImageCard = (props) => {
+    console.log('props', props)
     return (
         <>
             <h3>{props.title}</h3>
