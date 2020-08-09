@@ -26,3 +26,9 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+let hours = 1
+let saved = localStorage.getItem('saved')
+if (saved && (new Date().getTime() - saved > hours * 60 * 60 * 1000)) {
+  localStorage.clear()
+}
