@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
+console.log('API KEY', API_KEY)
 const BASE_URL = "https://api.spoonacular.com";
 
 export const FETCH_RECIPES_START = "FETCH_RECIPES_START";
