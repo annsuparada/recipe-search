@@ -28,8 +28,6 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-let hours = 0.5
-let saved = localStorage.getItem('saved')
-if (saved && (new Date().getTime() - saved > hours * 60 * 60 * 1000)) {
-  localStorage.clear()
-}
+
+setTimeout(function() { localStorage.clear(); }, (1000 * 60 * 60));
+

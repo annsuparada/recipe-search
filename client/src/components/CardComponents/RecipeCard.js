@@ -11,7 +11,6 @@ const RecipeCard = (props) => {
             <Link to={`/recipe/${props.prevSearch}/${props.id}`}>
             <Card
                 hoverable
-                style={{ maxWidth: 290, marginBottom: 20}}
                 cover={<img alt={props.title} src={props.image} />}
             >
                 <Meta title={props.title} />

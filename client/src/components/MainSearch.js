@@ -31,6 +31,9 @@ const MainSearch = (props) => {
     }
 
     useEffect(() => {
+        if(prevSearch === null) {
+            localStorage.setItem('lastKey', query.ingredeint)
+        }
         handleSubmit()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
@@ -62,7 +65,7 @@ const MainSearch = (props) => {
                                 query={query.ingredeint}
                                 prevSearch={prevSearch}
                             />
-                            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
+                            <div className="recipes-container">
                                 {
                                     props.recipes.map(recipe => (
                                         <RecipeCard
