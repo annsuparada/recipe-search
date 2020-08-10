@@ -30,6 +30,7 @@
  
 # To-do Lists V2
 
+- [ ] homepage
 - [ ] add favorites
 - [ ] sign up, login
 - [ ] create meal plans

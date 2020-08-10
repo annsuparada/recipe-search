@@ -25,10 +25,6 @@ a {
   cursor: pointer;
 }
 
-i {
-  font-style: italic;
-}
-
 p {
   font-size: 1.5rem;
   margin: 0;
@@ -69,37 +65,6 @@ h6 {
   font-weight: 500;
 }
 
-input {
-  font-size: 1.6rem;
-  padding: 10px 15px;
-  outline: none;
-  height: 35px;
-  border-radius: 5px;
-  border: none;
-}
-input:hover {
-  border: 1px solid $black;
-  background-color: #e6e5e6;
-}
-
-label {
-  font-size: 2rem;
-  padding: 5px 5px 5px 0;
-}
-
-textarea {
-  font-size: 1.6rem;
-  padding: 10px 15px;
-  margin: 10px 0 0;
-  outline: none;
-  border-radius: 5px;
-}
-
-select {
-  font-size: 1.6rem;
-  border-radius: 5px;
-}
-
 img {
   max-width: 100%;
 }
@@ -109,6 +74,24 @@ img {
 }
 .ant-list-item-meta-description {
   color: rgba(0, 0, 0, 0.66);
+}
+.homepage {
+  .header {
+    background-image: url("https://images.unsplash.com/photo-1541921671-aef0a20d0787?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1878&q=80");
+    background-position: center;
+    min-height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    
+
+    h3 {
+      color: $white;
+    }
+  }
 }
 
 .recipe-page {
@@ -153,9 +136,6 @@ img {
 	  display: grid;
 	  grid-template-columns: 48% 48%;
 	  grid-column-gap: 4%;
-  }
-  .recipes-container {
-    grid-template-columns: 100%;
   }
 }
 

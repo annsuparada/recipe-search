@@ -4,6 +4,7 @@ import MainSearch from "./components/MainSearch";
 import Navigation from './components/navigation/Navigation';
 import Footer from './components/footer/Footer';
 import RecipePage from './components/RecipePage';
+import Homepage from './components/homepage/Homepage';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Navigation />
       <div className="main-container">
         <Switch>
-          <Route exact path="/" component={MainSearch} />
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/recipes/" component={MainSearch} />
           <Route exact path="/recipe/:query/:id" component={RecipePage} />
         </Switch>
       </div>
