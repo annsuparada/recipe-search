@@ -3,7 +3,7 @@ import RecipeCard from '../CardComponents/RecipeCard';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getRecipesByType } from '../../store/actions/index';
-
+import { Spin } from 'antd';
 
 const FingerfoodList = (props) => {
     
@@ -15,6 +15,8 @@ const FingerfoodList = (props) => {
         <div className="fingerfood-list" style={{ paddingTop: "50px"}}>
             <h3>Fingerfood Recipes</h3>
             <div className="recipes-container">
+            {props.isLoading ? <Spin size="large" tip="Loading..." /> :
+            <>
                 {
                     props.recipesByType.slice(0,8).map(recipe => (
                         <RecipeCard
@@ -26,6 +28,8 @@ const FingerfoodList = (props) => {
                         />
                     ))
                 }
+                </>
+}
             </div>
 
         </div>
