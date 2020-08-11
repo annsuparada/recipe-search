@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getRecipes } from '../../store/actions/index';
 import PizzaList from './PizzaList';
+import FingerfoodList from './FingerfoodList';
 
 import { Input } from 'antd';
 
@@ -30,8 +31,7 @@ const Homepage = (props) => {
             </div>
             
             <PizzaList />
-            {/* <TacoList /> */}
-
+            <FingerfoodList />
         </div>
     );
 }

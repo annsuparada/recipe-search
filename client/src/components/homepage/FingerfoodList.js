@@ -1,27 +1,28 @@
 import React, { useEffect } from 'react';
+import RecipeCard from '../CardComponents/RecipeCard';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getRecipes } from '../../store/actions/index';
-import RecipeCard from '../CardComponents/RecipeCard';
+import { getRecipesByType } from '../../store/actions/index';
 
 
-const PizzaList = (props) => {
+const FingerfoodList = (props) => {
+    
     useEffect(() => {
-        props.getRecipes("pizza")
+        props.getRecipesByType("fingerfood")
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
-        <div className="pizza-list">
-            <h3>Pizza Recipes</h3>
+        <div className="fingerfood-list" style={{ paddingTop: "50px"}}>
+            <h3>Fingerfood Recipes</h3>
             <div className="recipes-container">
                 {
-                    props.recipes.slice(0,8).map(recipe => (
+                    props.recipesByType.slice(0,8).map(recipe => (
                         <RecipeCard
                             key={recipe.id}
                             id={recipe.id}
                             title={recipe.title}
                             image={recipe.image}
-                            prevSearch="pizza"
+                            prevSearch="fingerfood"
                         />
                     ))
                 }
@@ -31,15 +32,16 @@ const PizzaList = (props) => {
     );
 }
 
+
 const mapStateToProps = state => ({
-    recipes: state.recipesReducer.recipes,
-    isLoading: state.recipesReducer.isLoading,
-    error: state.recipesReducer.error,
+    recipesByType: state.recipesByTypeReducer.recipesByType,
+    isLoading: state.recipesByTypeReducer.isLoading,
+    error: state.recipesByTypeReducer.error,
 })
 
 export default withRouter(
     connect(
         mapStateToProps,
-        { getRecipes }
-    )(PizzaList)
+        { getRecipesByType }
+    )(FingerfoodList)
 );

@@ -23,7 +23,7 @@ const NextRecipes = (props) => {
                             <a href={`/recipe/${props.query}/${item.id}`}>
                                 <Card
                                     hoverable
-                                    style={{ marginBottom: 20 }}
+                                    style={{ marginBottom: 20, maxWidth: "250px" }}
                                     cover={<img alt={item.title} src={item.image} />}
                                 >
                                     <Meta title={item.title} />

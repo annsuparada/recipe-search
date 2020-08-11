@@ -108,9 +108,12 @@ img {
   justify-content: center;
 }
 .recipes-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
+  // display: grid;
+  // grid-template-columns: repeat(4, 24%);
+  // grid-gap: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .search {
@@ -141,6 +144,6 @@ img {
 
 @media #{$tablet} {
   .recipes-container {
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
   }
 }
