@@ -7,9 +7,9 @@ import { Spin, Alert } from 'antd';
 import SearchForm from './SearchForm';
 
 const MainSearch = (props) => {
-    const [state, setState] = useState({searchTerm: ""})
-    const [query, setQuery] = useState({ingredeint: "pizza"})
-    
+    const [state, setState] = useState({ searchTerm: "" })
+    const [query, setQuery] = useState({ ingredeint: "pizza" })
+
     const prevSearch = localStorage.getItem("lastKey");
 
     const searchHandleChange = (e) => {
@@ -26,19 +26,19 @@ const MainSearch = (props) => {
         }
     }
     const getSearch = () => {
-        setQuery({ ingredeint: state.searchTerm})
+        setQuery({ ingredeint: state.searchTerm })
         localStorage.setItem('lastKey', state.searchTerm)
     }
 
     useEffect(() => {
-        if(prevSearch === null) {
+        if (prevSearch === null) {
             localStorage.setItem('lastKey', query.ingredeint)
         }
         handleSubmit()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
 
-    
+
     return (
         <div className="main-search">
             {/* handle loading */}
@@ -57,7 +57,7 @@ const MainSearch = (props) => {
                         <>
 
                             {/* display data */}
-                            <SearchForm 
+                            <SearchForm
                                 searchTerm={state.searchTerm}
                                 searchHandleChange={searchHandleChange}
                                 handleSubmit={handleSubmit}
@@ -66,18 +66,24 @@ const MainSearch = (props) => {
                                 prevSearch={prevSearch}
                             />
                             <div className="recipes-container">
-                                {
-                                    props.recipes.map(recipe => (
-                                        <RecipeCard
-                                            key={recipe.id}
-                                            id={recipe.id}
-                                            title={recipe.title}
-                                            image={recipe.image}
-                                            prevSearch={prevSearch}
-                                        />
-                                    ))
-                                }
-                            </div>
+                                {console.log('length', props.recipes.length)}
+                                {props.recipes.length > 0 ?
+                                    <>
+
+                                        {
+                                            props.recipes.map(recipe => (
+                                                <RecipeCard
+                                                    key={recipe.id}
+                                                    id={recipe.id}
+                                                    title={recipe.title}
+                                                    image={recipe.image}
+                                                    prevSearch={prevSearch}
+                                                />
+                                            ))
+                                        }
+                                    </>
+                                    : <Alert message={`No result of "${prevSearch}" Plaese try again!`} type="info" />}
+                            </div> 
                         </>
                     }
                 </>
