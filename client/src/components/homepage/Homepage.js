@@ -14,18 +14,20 @@ const Homepage = (props) => {
         props.getRecipes("pizza")
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+    const getSearch = (query) => {
+        localStorage.setItem('lastKey', query)
+        props.history.push('/recipes')
+    }
     return (
         <div className="homepage">
             <div className="header">
 
-                <h3>
-                    Recipe Finder
-                    </h3>
+                <h3>Recipe Finder</h3>
                 <Search
                     placeholder="Find a recipe"
                     enterButton="Search"
                     size="large"
-                    onSearch={value => console.log(value)}
+                    onSearch={value => getSearch(value)}
                     style={{ maxWidth: "500px" }}
                 />
             </div>
