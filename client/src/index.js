@@ -32,4 +32,4 @@ serviceWorker.unregister();
 setTimeout(function() { localStorage.clear() }, (300000));
 setTimeout(function() { localStorage.clear() }, (600000));
 setTimeout(function() { localStorage.clear() }, (900000));
-setTimeout(function() { localStorage.clear() }, (1000000));
+setTimeout(function() { localStorage.clear() }, (1200000));
