@@ -30,7 +30,7 @@
  
 # To-do Lists V2
 
-- [ ] homepage
+- [x] homepage
 - [ ] add favorites
 - [ ] sign up, login
 - [ ] create meal plans
@@ -39,7 +39,25 @@
 
 
 ### Search form
-- [ ] Search by calories
+ ##### Number input
+- [ ] Search by calories 
+    - [ ] minCalories
+    - [ ] maxCalories
+
 - [ ] Search by nutrition
-- [ ] Filter by diet plants
+    - [ ] minCarbs, maxCarbs
+    - [ ] minProtein, maxProtein
+    - [ ] minFat, maxFat
+
+##### Dropdown
+- [ ] Filter by diet plans
+    - [ ] Gluten Free
+    - [ ] Ketogenic
+    - [ ] Vegetarian
+    - [ ] Vegan
+    
 - [ ] Filter by allergy ingredients
+    - [ ] Dairy, Egg, Gluten, Grain
+    - [ ] Peanut, Seafood, Sesame, Shellfish
+    - [ ] Soy, Sulfite, Tree Nut, Wheat
+
