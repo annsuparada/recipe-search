@@ -40,24 +40,24 @@
 
 ### Search form
  ##### Number input
-- [ ] Search by calories 
-    - [ ] minCalories
+- [x] Search by calories 
+    - [x] minCalories
     - [ ] maxCalories
 
 - [ ] Search by nutrition
-    - [ ] minCarbs, maxCarbs
-    - [ ] minProtein, maxProtein
-    - [ ] minFat, maxFat
+    - [x] minCarbs, maxCarbs
+    - [x] minProtein, maxProtein
+    - [x] minFat, maxFat
 
 ##### Dropdown
-- [ ] Filter by diet plans
-    - [ ] Gluten Free
-    - [ ] Ketogenic
-    - [ ] Vegetarian
-    - [ ] Vegan
+- [ ] Filter by diet plan
+    - [x] Gluten Free
+    - [x] Ketogenic
+    - [x] Vegetarian
+    - [x] Vegan
     
-- [ ] Filter by allergy ingredients
-    - [ ] Dairy, Egg, Gluten, Grain
-    - [ ] Peanut, Seafood, Sesame, Shellfish
-    - [ ] Soy, Sulfite, Tree Nut, Wheat
+- [ ] Filter by allergy ingredients (intolerances)
+    - [x] Dairy, Egg, Gluten, Grain
+    - [x] Peanut, Seafood, Sesame, Shellfish
+    - [x] Soy, Sulfite, Tree Nut, Wheat
 

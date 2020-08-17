@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getAdvanceRecipes } from '../../store/actions/index';
 import { Form, Input, Select, Tooltip, Button, InputNumber } from 'antd';
+
+const { Option } = Select;
 
 const AdvanceSearchForm = (props) => {
     const [form, setForm] = useState({
@@ -15,15 +17,19 @@ const AdvanceSearchForm = (props) => {
         maxProtein: 100,
         minFat: 5,
         maxFat: 50,
+        dietPlans: "",
+        intolerances: ""
     })
 
     const getResults = (e) => {
         e.preventDefault()
         props.getAdvanceRecipes(form.recipe, form.minCalories, form.maxCalories,
-            form.minCarbs, form.maxCarbs, form.minProtein, form.maxProtein, form.minFat, form.maxFat)
+            form.minCarbs, form.maxCarbs, form.minProtein, form.maxProtein,
+            form.minFat, form.maxFat, form.diet, form.intolerances)
     }
-    const handleChangeText = (e, value) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
+    const handleChangeText = (name, value) => {
+        console.log(value)
+        setForm({ ...form, [name]: value })
 
     }
 
@@ -31,6 +37,20 @@ const AdvanceSearchForm = (props) => {
         setForm({ ...form, [name]: Number(value) })
     }
 
+    // const dietPlans = ["Gluten Free", "Ketogenic", "Vegetarian", "Vegan"]
+    const dietPlans = [<Option key="Gluten Free">Gluten Free</Option>,
+        <Option key="Ketogenic">Ketogenic</Option>,
+        <Option key="Vegetarian">Vegetarian</Option>,
+        <Option key="Vegan">Vegan</Option>,
+    ];
+
+    const allergyIngredients = [<Option key="Dairy">Dairy</Option>,<Option key="Wheat">Wheat</Option>,
+        <Option key="Gluten">Gluten</Option>, <Option key="Egg">Egg</Option>,
+        <Option key="Grain">Grain</Option>, <Option key="Peanut">Peanut</Option>,
+        <Option key="Seafood">Seafood</Option>, <Option key="Sesame">Sesame</Option>,
+        <Option key="Shellfish">Shellfish</Option>, <Option key="Soy">Soy</Option>,
+        <Option key="Sulfite">Sulfite</Option>, <Option key="Tree Nut">Tree Nut</Option>,
+    ];
     return (
         <div className="advance-search-form">
             <Form onSubmit={getResults} style={{ backgroundColor: "white", padding: "20px" }}>
@@ -45,7 +65,7 @@ const AdvanceSearchForm = (props) => {
                             placeholder="Recipe"
                             name="recipe"
                             value={form.recipe}
-                            onChange={handleChangeText}
+                            onChange={value => handleChangeText("recipe", value)}
                         />
                     </Form.Item>
                 </Form.Item>
@@ -160,6 +180,38 @@ const AdvanceSearchForm = (props) => {
                         />
                     </Form.Item>
                     <Tooltip>g</Tooltip>
+                </Form.Item>
+
+                <Form.Item label="Diet">
+                    <Form.Item
+                        name="dietPlans"
+                        noStyle
+                    >
+                        <Select
+                            mode="multiple"
+                            style={{ width: '100%' }}
+                            placeholder="Please select diet plan"
+                            onChange={value => handleChangeText("dietPlans", value)}
+                        >
+                            {dietPlans}
+                        </Select>
+                    </Form.Item>
+                </Form.Item>
+
+                <Form.Item label="Allergy ingredients">
+                    <Form.Item
+                        name="intolerances"
+                        noStyle
+                    >
+                        <Select
+                            mode="multiple"
+                            style={{ width: '100%' }}
+                            placeholder="Please select food alergy"
+                            onChange={value => handleChangeText("intolerances", value)}
+                        >
+                            {allergyIngredients}
+                        </Select>
+                    </Form.Item>
                 </Form.Item>
                 <button onClick={getResults}>Search</button>
             </Form>

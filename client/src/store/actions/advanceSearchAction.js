@@ -10,13 +10,13 @@ export const FETCH_ADVANCE_SEARCH_FAILURE = "FETCH_ADVANCE_SEARCH_FAILURE";
 const listCount = 20;
 
 export const getAdvanceRecipes = (recipe, minCalories, maxCalories,
-    minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat) => async (dispatch) => {
+    minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, diet, intolerances) => async (dispatch) => {
 
         dispatch({ type: FETCH_ADVANCE_SEARCH_START })
 
         const localStorageKey = `/recipes/complexSearch?query=${recipe}&number=${listCount}&addRecipeNutrition=true
         &minCalories=${minCalories}&maxCalories=${maxCalories}&minCarbs=${minCarbs}&maxCarbs=${maxCarbs}&minProtein=${minProtein}
-        &maxProtein=${maxProtein}&minFat=${minFat}&maxFat=${maxFat}&apiKey=${API_KEY}`;
+        &maxProtein=${maxProtein}&minFat=${minFat}&maxFat=${maxFat}&diet=${diet}&intolerances=${intolerances}&apiKey=${API_KEY}`;
 
         if (localStorage.getItem(localStorageKey)) {
             console.log('USED LOCAL CACHE');
