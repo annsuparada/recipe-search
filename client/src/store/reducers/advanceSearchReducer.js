@@ -10,7 +10,7 @@ export const initialState = {
     error: '',
 }
 
-export const advanceSearchRecipesReducer = (state = initialState, action) => {
+export const advanceSearchReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_ADVANCE_SEARCH_START:
             return {
@@ -21,7 +21,7 @@ export const advanceSearchRecipesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                advanceSearchRecipes: action.payload.filter(item => item.analyzedInstructions.length > 0),
+                advanceSearchRecipes: action.payload,
             }
         case FETCH_ADVANCE_SEARCH_FAILURE:
             return {

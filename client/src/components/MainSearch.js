@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { getRecipes } from '../store/actions/index';
 import RecipeCard from './CardComponents/RecipeCard';
 import { Spin, Alert } from 'antd';
-import SearchForm from './SearchForm';
+import SearchForm from './Form/SearchForm';
 
 const MainSearch = (props) => {
     const [state, setState] = useState({ searchTerm: "" })
