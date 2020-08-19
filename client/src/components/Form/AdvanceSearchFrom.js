@@ -23,12 +23,12 @@ const AdvanceSearchForm = (props) => {
 
     const getResults = (e) => {
         e.preventDefault()
-        props.getAdvanceRecipes(form.recipe, form.minCalories, form.maxCalories,
-            form.minCarbs, form.maxCarbs, form.minProtein, form.maxProtein,
-            form.minFat, form.maxFat, form.diet, form.intolerances)
+        localStorage.setItem('advanceSearch', JSON.stringify(form))
+        props.history.push('/recipes');
     }
+  
+
     const handleChangeText = (name, value) => {
-        console.log(value)
         setForm({ ...form, [name]: value })
 
     }
@@ -37,14 +37,15 @@ const AdvanceSearchForm = (props) => {
         setForm({ ...form, [name]: Number(value) })
     }
 
-    // const dietPlans = ["Gluten Free", "Ketogenic", "Vegetarian", "Vegan"]
-    const dietPlans = [<Option key="Gluten Free">Gluten Free</Option>,
+    const dietPlans = [
+        <Option key="Gluten Free">Gluten Free</Option>,
         <Option key="Ketogenic">Ketogenic</Option>,
         <Option key="Vegetarian">Vegetarian</Option>,
         <Option key="Vegan">Vegan</Option>,
     ];
 
-    const allergyIngredients = [<Option key="Dairy">Dairy</Option>,<Option key="Wheat">Wheat</Option>,
+    const allergyIngredients = [
+        <Option key="Dairy">Dairy</Option>, <Option key="Wheat">Wheat</Option>,
         <Option key="Gluten">Gluten</Option>, <Option key="Egg">Egg</Option>,
         <Option key="Grain">Grain</Option>, <Option key="Peanut">Peanut</Option>,
         <Option key="Seafood">Seafood</Option>, <Option key="Sesame">Sesame</Option>,
@@ -53,12 +54,12 @@ const AdvanceSearchForm = (props) => {
     ];
     return (
         <div className="advance-search-form">
+            {console.log('advanceSearchRecipes=====', props.advanceSearchRecipes)}
             <Form onSubmit={getResults} style={{ backgroundColor: "white", padding: "20px" }}>
                 <Form.Item label="Recipe">
                     <Form.Item
                         name="recipe"
                         noStyle
-                    // rules={[{ required: true, message: 'Username is required' }]}
                     >
                         <Input
                             style={{ width: "100%" }}
@@ -220,7 +221,7 @@ const AdvanceSearchForm = (props) => {
 }
 
 const mapStateToProps = state => ({
-    advanceSearchRecipes: state.advanceSearchReducer.advanceSearchRecipes,
+    advanceSearchRecipes: state.recipesReducer.advanceSearchRecipes,
 })
 
 export default withRouter(

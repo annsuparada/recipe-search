@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getRecipes } from '../store/actions/index';
+import { getRecipes, getAdvanceRecipes } from '../store/actions/index';
 import RecipeCard from './CardComponents/RecipeCard';
 import { Spin, Alert } from 'antd';
 import SearchForm from './Form/SearchForm';
 
-const MainSearch = (props) => {
-    const [state, setState] = useState({ searchTerm: "" })
-    const [query, setQuery] = useState({ ingredeint: "pizza" })
 
+const MainSearch = (props) => {
+    const form = JSON.parse(localStorage.getItem("advanceSearch"));
     const prevSearch = localStorage.getItem("lastKey");
+    
+  
+
+    const [state, setState] = useState({ searchTerm: "" });
+    const [query, setQuery] = useState({ ingredeint: "pizza" });
+    
 
     const searchHandleChange = (e) => {
         setState({
@@ -25,9 +30,12 @@ const MainSearch = (props) => {
             props.getRecipes(query.ingredeint)
         }
     }
+
     const getSearch = () => {
         setQuery({ ingredeint: state.searchTerm })
         localStorage.setItem('lastKey', state.searchTerm)
+        localStorage.removeItem('advanceSearch')
+        setState({searchTerm: ""})
     }
 
     useEffect(() => {
@@ -35,13 +43,21 @@ const MainSearch = (props) => {
             localStorage.setItem('lastKey', query.ingredeint)
         }
         handleSubmit()
+
+        if (form !== null) {
+            
+            props.getAdvanceRecipes(form.recipe, form.minCalories, form.maxCalories,
+                form.minCarbs, form.maxCarbs, form.minProtein, form.maxProtein,
+                form.minFat, form.maxFat, form.diet, form.intolerances)
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
 
 
     return (
         <div className="main-search">
-            {/* handle loading */}
+            {console.log('props.advanceSearchRecipes=====', props.advanceSearchRecipes)}
+            {console.log('props.recipes', props.recipes)}
             {props.isLoading ? <Spin size="large" tip="Loading..." style={{ margin: "300px" }} /> :
                 <>
 
@@ -66,21 +82,38 @@ const MainSearch = (props) => {
                                 prevSearch={prevSearch}
                             />
                             <div className="recipes-container">
-                                {console.log('length', props.recipes.length)}
                                 {props.recipes.length > 0 ?
+                                    <>
+                                    {props.advanceSearchRecipes.length > 0 ? 
+                                    <>
+                                    {
+                                            props.advanceSearchRecipes.map(recipe => (
+                                                <RecipeCard
+                                                key={recipe.id}
+                                                id={recipe.id}
+                                                title={recipe.title}
+                                                image={recipe.image}
+                                                prevSearch={prevSearch}
+                                                />
+                                                ))
+                                            }
+                                    </> :
                                     <>
 
                                         {
                                             props.recipes.map(recipe => (
                                                 <RecipeCard
-                                                    key={recipe.id}
-                                                    id={recipe.id}
-                                                    title={recipe.title}
-                                                    image={recipe.image}
-                                                    prevSearch={prevSearch}
+                                                key={recipe.id}
+                                                id={recipe.id}
+                                                title={recipe.title}
+                                                image={recipe.image}
+                                                prevSearch={prevSearch}
                                                 />
-                                            ))
+                                                ))
+                                            }
+                                            </>
                                         }
+                                        
                                     </>
                                     : <Alert message={`No result of "${prevSearch}" Plaese try again!`} type="info" />}
                             </div> 
@@ -96,12 +129,12 @@ const mapStateToProps = state => ({
     recipes: state.recipesReducer.recipes,
     isLoading: state.recipesReducer.isLoading,
     error: state.recipesReducer.error,
-    searchTerm: state.recipesReducer.searchTerm,
+    advanceSearchRecipes: state.recipesReducer.advanceSearchRecipes,
 })
 
 export default withRouter(
     connect(
         mapStateToProps,
-        { getRecipes }
+        { getRecipes, getAdvanceRecipes }
     )(MainSearch)
 );

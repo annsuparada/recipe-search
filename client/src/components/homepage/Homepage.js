@@ -5,7 +5,7 @@ import { getRecipes } from '../../store/actions/index';
 import PizzaList from './PizzaList';
 import FingerfoodList from './FingerfoodList';
 import AdvanceSearchForm from '../Form/AdvanceSearchFrom';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 
 const { Search } = Input;
 
@@ -35,27 +35,33 @@ const Homepage = (props) => {
             <div className="header">
 
                 <h3>Recipe Finder</h3>
-                {advanceSearch ? 
-                <>
-                <Search
-                    placeholder="Find a recipe"
-                    enterButton="Search"
-                    size="large"
-                    onSearch={value => getSearch(value)}
-                    style={{ maxWidth: "500px" }}
-                    />
-                <button onClick={getAdvanceSearch}>Advance Search</button>
+                {!advanceSearch ?
+                    <>
+                        <Search
+                            placeholder="Find a recipe"
+                            enterButton="Search"
+                            size="large"
+                            onSearch={value => getSearch(value)}
+                            style={{ maxWidth: "500px" }}
+                        />
+                        <Button
+                            onClick={getAdvanceSearch}
+                            size="small"
+                            style={{ marginTop: 15 }}
+                        >
+                            Advance Search
+                </Button>
                     </> :
                     <>
-                    <AdvanceSearchForm />
-                    <button onClick={cancleAdvanceSearch}>Cancle</button>
+                        <AdvanceSearchForm />
+                        <button onClick={cancleAdvanceSearch}>Cancle</button>
                     </>
                 }
-                
+
             </div>
-            
-            {/* <PizzaList />
-            <FingerfoodList /> */}
+
+            <PizzaList />
+            <FingerfoodList />
         </div>
     );
 }
