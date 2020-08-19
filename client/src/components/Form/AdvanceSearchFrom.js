@@ -26,7 +26,7 @@ const AdvanceSearchForm = (props) => {
         localStorage.setItem('advanceSearch', JSON.stringify(form))
         props.history.push('/recipes');
     }
-  
+
 
     const handleChangeText = (name, value) => {
         setForm({ ...form, [name]: value })
@@ -52,137 +52,28 @@ const AdvanceSearchForm = (props) => {
         <Option key="Shellfish">Shellfish</Option>, <Option key="Soy">Soy</Option>,
         <Option key="Sulfite">Sulfite</Option>, <Option key="Tree Nut">Tree Nut</Option>,
     ];
+
     return (
-        <div className="advance-search-form">
-            {console.log('advanceSearchRecipes=====', props.advanceSearchRecipes)}
-            <Form onSubmit={getResults} style={{ backgroundColor: "white", padding: "20px" }}>
+        <div className="advance-search-form" style={{ width: "100%" }}>
+            <Form
+                onSubmit={getResults}
+                style={{ backgroundColor: "white", padding: "20px", maxWidth: 500, margin: "0 auto" }}
+                labelCol={{ span: 5 }}
+            // wrapperCol={{ span: 20 }}
+            >
                 <Form.Item label="Recipe">
                     <Form.Item
                         name="recipe"
                         noStyle
                     >
                         <Input
-                            style={{ width: "100%" }}
                             placeholder="Recipe"
                             name="recipe"
                             value={form.recipe}
-                            onChange={value => handleChangeText("recipe", value)}
+                            onChange={event => handleChangeText("recipe", event.target.value)}
                         />
                     </Form.Item>
                 </Form.Item>
-
-                <Form.Item label="Calories">
-                    <Form.Item
-                        name="minCalories"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Min"
-                            name="minCalories"
-                            value={form.minCalories}
-                            onChange={value => handleChangeNumber("minCalories", value)}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="maxCalories"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Max"
-                            name="maxCalories"
-                            value={form.maxCalories}
-                            onChange={value => handleChangeNumber("maxCalories", value)}
-                        />
-                    </Form.Item>
-                    <Tooltip>Cal</Tooltip>
-                </Form.Item>
-
-                <Form.Item label="Carbs">
-                    <Form.Item
-                        name="minCarbs"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Min"
-                            name="minCarbs"
-                            value={form.minCarbs}
-                            onChange={value => handleChangeNumber("minCarbs", value)}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="maxCarbs"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Max"
-                            name="maxCarbs"
-                            value={form.maxCarbs}
-                            onChange={value => handleChangeNumber("maxCarbs", value)}
-                        />
-                    </Form.Item>
-                    <Tooltip>g</Tooltip>
-                </Form.Item>
-
-                <Form.Item label="Protein">
-                    <Form.Item
-                        name="minProtein"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Min"
-                            name="minProtein"
-                            value={form.minProtein}
-                            onChange={value => handleChangeNumber("minProtein", value)}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="maxProtein"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Max"
-                            name="maxProtein"
-                            value={form.maxProtein}
-                            onChange={value => handleChangeNumber("maxProtein", value)}
-                        />
-                    </Form.Item>
-                    <Tooltip>g</Tooltip>
-                </Form.Item>
-
-                <Form.Item label="Fat">
-                    <Form.Item
-                        name="minFat"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Min"
-                            name="minFat"
-                            value={form.minFat}
-                            onChange={value => handleChangeNumber("minFat", value)}
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="maxFat"
-                        noStyle
-                    >
-                        <InputNumber
-                            // style={{ width: 160 }}
-                            placeholder="Max"
-                            name="maxFat"
-                            value={form.maxFat}
-                            onChange={value => handleChangeNumber("maxFat", value)}
-                        />
-                    </Form.Item>
-                    <Tooltip>g</Tooltip>
-                </Form.Item>
-
                 <Form.Item label="Diet">
                     <Form.Item
                         name="dietPlans"
@@ -199,7 +90,7 @@ const AdvanceSearchForm = (props) => {
                     </Form.Item>
                 </Form.Item>
 
-                <Form.Item label="Allergy ingredients">
+                <Form.Item label="Food Allergy">
                     <Form.Item
                         name="intolerances"
                         noStyle
@@ -214,7 +105,132 @@ const AdvanceSearchForm = (props) => {
                         </Select>
                     </Form.Item>
                 </Form.Item>
-                <button onClick={getResults}>Search</button>
+
+                <Form.Item label="Calories">
+                    <Form.Item
+                        name="minCalories"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Min"
+                            name="minCalories"
+                            value={form.minCalories}
+                            onChange={value => handleChangeNumber("minCalories", value)}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        name="maxCalories"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Max"
+                            name="maxCalories"
+                            value={form.maxCalories}
+                            onChange={value => handleChangeNumber("maxCalories", value)}
+                        />
+                    </Form.Item>
+                    <Tooltip>Cal</Tooltip>
+                </Form.Item>
+
+                <Form.Item label="Carbs">
+                    <Form.Item
+                        name="minCarbs"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Min"
+                            name="minCarbs"
+                            value={form.minCarbs}
+                            onChange={value => handleChangeNumber("minCarbs", value)}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        name="maxCarbs"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Max"
+                            name="maxCarbs"
+                            value={form.maxCarbs}
+                            onChange={value => handleChangeNumber("maxCarbs", value)}
+                        />
+                    </Form.Item>
+                    <Tooltip>g</Tooltip>
+                </Form.Item>
+
+                <Form.Item label="Protein">
+                    <Form.Item
+                        name="minProtein"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Min"
+                            name="minProtein"
+                            value={form.minProtein}
+                            onChange={value => handleChangeNumber("minProtein", value)}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        name="maxProtein"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Max"
+                            name="maxProtein"
+                            value={form.maxProtein}
+                            onChange={value => handleChangeNumber("maxProtein", value)}
+                        />
+                    </Form.Item>
+                    <Tooltip>g</Tooltip>
+                </Form.Item>
+
+                <Form.Item label="Fat">
+                    <Form.Item
+                        name="minFat"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Min"
+                            name="minFat"
+                            value={form.minFat}
+                            onChange={value => handleChangeNumber("minFat", value)}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        name="maxFat"
+                        noStyle
+                    >
+                        <InputNumber
+                            style={{ marginRight: 10 }}
+                            placeholder="Max"
+                            name="maxFat"
+                            value={form.maxFat}
+                            onChange={value => handleChangeNumber("maxFat", value)}
+                        />
+                    </Form.Item>
+                    <Tooltip>g</Tooltip>
+                </Form.Item>
+
+
+                <div style={{ display: 'flex', justifyContent: "center"}}>
+
+                <Button
+                    onClick={getResults}
+                    type="primary"
+                    htmlType="submit"
+                    style={{ marginRight: 10 }}
+                    >
+                    Search
+                    </Button>
+                <Button onClick={props.cancleAdvanceSearch}>Cancle</Button>
+                    </div>
             </Form>
         </div>
     );

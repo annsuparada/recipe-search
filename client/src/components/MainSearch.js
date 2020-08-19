@@ -56,8 +56,6 @@ const MainSearch = (props) => {
 
     return (
         <div className="main-search">
-            {console.log('props.advanceSearchRecipes=====', props.advanceSearchRecipes)}
-            {console.log('props.recipes', props.recipes)}
             {props.isLoading ? <Spin size="large" tip="Loading..." style={{ margin: "300px" }} /> :
                 <>
 

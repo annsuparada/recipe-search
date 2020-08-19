@@ -53,8 +53,10 @@ const Homepage = (props) => {
                 </Button>
                     </> :
                     <>
-                        <AdvanceSearchForm />
-                        <button onClick={cancleAdvanceSearch}>Cancle</button>
+                        <AdvanceSearchForm
+                        cancleAdvanceSearch={cancleAdvanceSearch}
+                        />
+                        
                     </>
                 }
 
