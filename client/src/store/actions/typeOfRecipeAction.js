@@ -12,7 +12,7 @@ const listCount = 20;
 export const getRecipesByType = (searchTerm) => async (dispatch) => {
     dispatch({ type: FETCH_TYPE_OF_RECIPE_START })
 
-    const localStorageKey = `/recipes/complexSearch?type=${searchTerm}&number=${listCount}&addRecipeNutrition=true&apiKey=${API_KEY}`;
+    const localStorageKey = `/recipes/complexSearch?type=${searchTerm}&number=${listCount}&instructionsRequired=true&addRecipeNutrition=true&apiKey=${API_KEY}`;
 
     if (localStorage.getItem(localStorageKey)) {
         console.log('USED LOCAL CACHE');

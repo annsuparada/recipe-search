@@ -16,7 +16,7 @@ export const getAdvanceRecipes = (recipe, minCalories, maxCalories,
 
         const localStorageKey = `/recipes/complexSearch?query=${recipe}&number=${listCount}&addRecipeNutrition=true
         &minCalories=${minCalories}&maxCalories=${maxCalories}&minCarbs=${minCarbs}&maxCarbs=${maxCarbs}&minProtein=${minProtein}
-        &maxProtein=${maxProtein}&minFat=${minFat}&maxFat=${maxFat}&diet=${diet}&intolerances=${intolerances}&apiKey=${API_KEY}`;
+        &maxProtein=${maxProtein}&minFat=${minFat}&maxFat=${maxFat}&diet=${diet}&intolerances=${intolerances}&instructionsRequired=true&apiKey=${API_KEY}`;
 
         if (localStorage.getItem(localStorageKey)) {
             console.log('USED LOCAL CACHE');
