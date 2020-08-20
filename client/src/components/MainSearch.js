@@ -5,26 +5,13 @@ import { getRecipes, getAdvanceRecipes } from '../store/actions/index';
 import RecipeCard from './CardComponents/RecipeCard';
 import { Spin, Alert } from 'antd';
 import SearchForm from './Form/SearchForm';
-import AdvanceSearchForm from './Form/AdvanceSearchFrom';
 
 const MainSearch = (props) => {
     const form = JSON.parse(localStorage.getItem("advanceSearch"));
     const prevSearch = localStorage.getItem("lastKey");
     
-  
-
     const [state, setState] = useState({ searchTerm: "" });
     const [query, setQuery] = useState({ ingredeint: "pizza" });
-    const [advanceSearch, setAdvanceSearch] = useState(false)
-
-    const getAdvanceSearch = () => {
-        setAdvanceSearch(true)
-        props.history.push('/')
-    }
-
-    const cancleAdvanceSearch = () => {
-        setAdvanceSearch(false)
-    }
 
     const searchHandleChange = (e) => {
         setState({
@@ -54,7 +41,6 @@ const MainSearch = (props) => {
         handleSubmit()
 
         if (form !== null) {
-            
             props.getAdvanceRecipes(form.recipe, form.minCalories, form.maxCalories,
                 form.minCarbs, form.maxCarbs, form.minProtein, form.maxProtein,
                 form.minFat, form.maxFat, form.diet, form.intolerances)
@@ -79,9 +65,6 @@ const MainSearch = (props) => {
                             style={{ width: "100%" }}
                         /> :
                         <>
-
-                            {/* display data */}
-                            {/* {!advanceSearch ?  */}
                             <SearchForm
                             searchTerm={state.searchTerm}
                             searchHandleChange={searchHandleChange}
@@ -89,13 +72,8 @@ const MainSearch = (props) => {
                             getSearch={getSearch}
                             query={query.ingredeint}
                             prevSearch={prevSearch}
-                            getAdvanceSearch={getAdvanceSearch}
                             /> 
-                            {/* : */}
-                            {/* <AdvanceSearchForm 
-                            cancleAdvanceSearch={cancleAdvanceSearch}
-                            />
-                        } */}
+                    
                             <div className="recipes-container">
                                 {props.recipes.length > 0 ?
                                     <>

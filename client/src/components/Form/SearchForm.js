@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Form, Row, Col } from 'antd';
+import { Input, Button } from 'antd';
 import { withRouter } from "react-router-dom";
 
 const SearchForm = (props) => {
@@ -21,22 +21,11 @@ const SearchForm = (props) => {
                     type="primary"
                     htmlType="submit"
                     onClick={props.getSearch}
-                    // style={{ margin: "0 10px 0 10px" }}
                     size="large"
                 >
                     Search
             </Button>
-                
             </div>
-            {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '15px'}}>
-                <Button
-                    size="small"
-                    htmlType="submit"
-                    onClick={props.getAdvanceSearch}
-                >
-                    Advance search
-            </Button>
-            </div> */}
         </div>
     );
 }
