@@ -5,7 +5,7 @@ import { getRecipes, getAdvanceRecipes } from '../store/actions/index';
 import RecipeCard from './CardComponents/RecipeCard';
 import { Spin, Alert } from 'antd';
 import SearchForm from './Form/SearchForm';
-
+import AdvanceSearchForm from './Form/AdvanceSearchFrom';
 
 const MainSearch = (props) => {
     const form = JSON.parse(localStorage.getItem("advanceSearch"));
@@ -15,7 +15,16 @@ const MainSearch = (props) => {
 
     const [state, setState] = useState({ searchTerm: "" });
     const [query, setQuery] = useState({ ingredeint: "pizza" });
-    
+    const [advanceSearch, setAdvanceSearch] = useState(false)
+
+    const getAdvanceSearch = () => {
+        setAdvanceSearch(true)
+        props.history.push('/')
+    }
+
+    const cancleAdvanceSearch = () => {
+        setAdvanceSearch(false)
+    }
 
     const searchHandleChange = (e) => {
         setState({
@@ -54,9 +63,10 @@ const MainSearch = (props) => {
     }, [query.ingredeint])
 
 
+
     return (
         <div className="main-search">
-            {props.isLoading ? <Spin size="large" tip="Loading..." style={{ margin: "300px" }} /> :
+            {props.isLoading ? <Spin size="large" tip="Loading..." style={{ margin: "300px auto" }} /> :
                 <>
 
                     {/* handle error */}
@@ -71,14 +81,21 @@ const MainSearch = (props) => {
                         <>
 
                             {/* display data */}
+                            {/* {!advanceSearch ?  */}
                             <SearchForm
-                                searchTerm={state.searchTerm}
-                                searchHandleChange={searchHandleChange}
-                                handleSubmit={handleSubmit}
-                                getSearch={getSearch}
-                                query={query.ingredeint}
-                                prevSearch={prevSearch}
+                            searchTerm={state.searchTerm}
+                            searchHandleChange={searchHandleChange}
+                            handleSubmit={handleSubmit}
+                            getSearch={getSearch}
+                            query={query.ingredeint}
+                            prevSearch={prevSearch}
+                            getAdvanceSearch={getAdvanceSearch}
+                            /> 
+                            {/* : */}
+                            {/* <AdvanceSearchForm 
+                            cancleAdvanceSearch={cancleAdvanceSearch}
                             />
+                        } */}
                             <div className="recipes-container">
                                 {props.recipes.length > 0 ?
                                     <>

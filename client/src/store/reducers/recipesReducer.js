@@ -8,6 +8,7 @@ import {
     FETCH_ADVANCE_SEARCH_START,
     FETCH_ADVANCE_SEARCH_SUCCESS,
     FETCH_ADVANCE_SEARCH_FAILURE,
+
 } from '../actions/index';
 
 export const initialState = {
@@ -17,7 +18,6 @@ export const initialState = {
     error: '',
     recipe: [],
     nextRecipes: [],
-    searchTerm: "",
 }
 
 export const recipesReducer = (state = initialState, action) => {

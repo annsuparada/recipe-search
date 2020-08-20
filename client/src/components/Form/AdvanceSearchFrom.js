@@ -57,9 +57,10 @@ const AdvanceSearchForm = (props) => {
         <div className="advance-search-form" style={{ width: "100%" }}>
             <Form
                 onSubmit={getResults}
-                style={{ backgroundColor: "white", padding: "20px", maxWidth: 500, margin: "0 auto" }}
+                style={{ backgroundColor: "white", padding: "20px", 
+                maxWidth: 500, margin: "0 auto", 
+                border: "1px solid #d9d9d9", marginBottom: "20px"}}
                 labelCol={{ span: 5 }}
-            // wrapperCol={{ span: 20 }}
             >
                 <Form.Item label="Recipe">
                     <Form.Item

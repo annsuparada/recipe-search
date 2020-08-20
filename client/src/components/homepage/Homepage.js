@@ -54,7 +54,7 @@ const Homepage = (props) => {
                     </> :
                     <>
                         <AdvanceSearchForm
-                        cancleAdvanceSearch={cancleAdvanceSearch}
+                            cancleAdvanceSearch={cancleAdvanceSearch}
                         />
                         
                     </>
