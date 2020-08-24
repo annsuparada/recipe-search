@@ -35,16 +35,18 @@ const MainSearch = (props) => {
     }
 
     useEffect(() => {
-        if (prevSearch === null) {
-            localStorage.setItem('lastKey', query.ingredeint)
-        }
-        handleSubmit()
-
         if (form !== null) {
             props.getAdvanceRecipes(form.recipe, form.minCalories, form.maxCalories,
                 form.minCarbs, form.maxCarbs, form.minProtein, form.maxProtein,
                 form.minFat, form.maxFat, form.diet, form.intolerances)
+        } else {
+            if (prevSearch === null) {
+                localStorage.setItem('lastKey', query.ingredeint)
+            }
+            handleSubmit()
         }
+
+  
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
 
@@ -54,7 +56,8 @@ const MainSearch = (props) => {
         <div className="main-search">
             {props.isLoading ? <Spin size="large" tip="Loading..." style={{ margin: "300px auto" }} /> :
                 <>
-
+            {console.log('props.advanceSearchRecipes',props.advanceSearchRecipes)}
+            {console.log('props.recipes',props.recipes)}
                     {/* handle error */}
                     {props.error ?
                         <Alert
@@ -75,12 +78,13 @@ const MainSearch = (props) => {
                             /> 
                     
                             <div className="recipes-container">
-                                {props.recipes.length > 0 ?
+                                {props.recipes.length === 0 &&  props.advanceSearchRecipes.length === 0 ?
+                                <Alert message={`No result of "${prevSearch}" Plaese try again!`} type="info" /> :
                                     <>
                                     {props.advanceSearchRecipes.length > 0 ? 
                                     <>
                                     {
-                                            props.advanceSearchRecipes.map(recipe => (
+                                             props.advanceSearchRecipes.map(recipe => (
                                                 <RecipeCard
                                                 key={recipe.id}
                                                 id={recipe.id}
@@ -108,7 +112,7 @@ const MainSearch = (props) => {
                                         }
                                         
                                     </>
-                                    : <Alert message={`No result of "${prevSearch}" Plaese try again!`} type="info" />}
+                                    }
                             </div> 
                         </>
                     }

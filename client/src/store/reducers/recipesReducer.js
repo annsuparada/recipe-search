@@ -31,7 +31,7 @@ export const recipesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                recipes: action.payload.filter(item => item.analyzedInstructions.length > 0),
+                recipes: action.payload,
                 advanceSearchRecipes: []
             }
         case FETCH_RECIPES_FAILURE:
@@ -68,6 +68,7 @@ export const recipesReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 advanceSearchRecipes: action.payload,
+                recipes: [],
             }
         case FETCH_ADVANCE_SEARCH_FAILURE:
             return {
