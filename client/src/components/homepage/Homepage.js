@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getRecipes } from '../../store/actions/index';
+import { getRecipes, toggleAdvanceSearch } from '../../store/actions/index';
 import PizzaList from './PizzaList';
 import FingerfoodList from './FingerfoodList';
 import AdvanceSearchForm from '../Form/AdvanceSearchFrom';
@@ -10,15 +10,6 @@ import { Input, Button } from 'antd';
 const { Search } = Input;
 
 const Homepage = (props) => {
-    const [advanceSearch, setAdvanceSearch] = useState(false)
-
-    const getAdvanceSearch = () => {
-        setAdvanceSearch(true)
-    }
-
-    const cancleAdvanceSearch = () => {
-        setAdvanceSearch(false)
-    }
 
     useEffect(() => {
         props.getRecipes("pizza")
@@ -33,9 +24,9 @@ const Homepage = (props) => {
     return (
         <div className="homepage">
             <div className="header">
-
+        {console.log('fatchAdvance', props.fatchAdvance)}
                 <h3>Recipe Finder</h3>
-                {!advanceSearch ?
+                {!props.toggleAdvanceState ?
                     <>
                         <Search
                             placeholder="Find a recipe"
@@ -45,16 +36,16 @@ const Homepage = (props) => {
                             style={{ maxWidth: "500px" }}
                         />
                         <Button
-                            onClick={getAdvanceSearch}
+                            onClick={() => props.toggleAdvanceSearch(true)}
                             size="small"
                             style={{ marginTop: 15 }}
                         >
                             Advance Search
-                </Button>
+                        </Button>
                     </> :
                     <>
                         <AdvanceSearchForm
-                            cancleAdvanceSearch={cancleAdvanceSearch}
+                            cancleAdvanceSearch={() => props.toggleAdvanceSearch(false)}
                         />
                         
                     </>
@@ -72,11 +63,12 @@ const mapStateToProps = state => ({
     recipes: state.recipesReducer.recipes,
     isLoading: state.recipesReducer.isLoading,
     error: state.recipesReducer.error,
+    toggleAdvanceState: state.recipesReducer.toggleAdvanceState,
 })
 
 export default withRouter(
     connect(
         mapStateToProps,
-        { getRecipes }
+        { getRecipes, toggleAdvanceSearch}
     )(Homepage)
 );

@@ -8,6 +8,8 @@ import {
     FETCH_ADVANCE_SEARCH_START,
     FETCH_ADVANCE_SEARCH_SUCCESS,
     FETCH_ADVANCE_SEARCH_FAILURE,
+    TOGGLE_ADVANCE_SEARCH,
+    FETCH_ADVANCE,
 
 } from '../actions/index';
 
@@ -18,6 +20,8 @@ export const initialState = {
     error: '',
     recipe: [],
     nextRecipes: [],
+    toggleAdvanceState: false,
+    fatchAdvance: false,
 }
 
 export const recipesReducer = (state = initialState, action) => {
@@ -25,7 +29,7 @@ export const recipesReducer = (state = initialState, action) => {
         case FETCH_RECIPES_START:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
             }
         case FETCH_RECIPES_SUCCESS:
             return {
@@ -61,7 +65,7 @@ export const recipesReducer = (state = initialState, action) => {
         case FETCH_ADVANCE_SEARCH_START:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
             }
         case FETCH_ADVANCE_SEARCH_SUCCESS:
             return {
@@ -75,6 +79,16 @@ export const recipesReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: 'API is down. Please try again.'
+            }
+        case TOGGLE_ADVANCE_SEARCH:
+            return {
+                ...state,
+                toggleAdvanceState: action.payload,
+            }
+        case FETCH_ADVANCE:
+            return {
+                ...state,
+                fatchAdvance: action.payload,
             }
         default:
             return state

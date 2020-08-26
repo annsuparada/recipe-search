@@ -11,7 +11,6 @@ const listCount = 20;
 
 export const getRecipes = (searchTerm) => async (dispatch) => {
     dispatch({ type: FETCH_RECIPES_START })
-
     const localStorageKey = `/recipes/complexSearch?query=${searchTerm}&instructionsRequired=true&number=${listCount}&addRecipeNutrition=true&apiKey=${API_KEY}`;
 
     if (localStorage.getItem(localStorageKey)) {
