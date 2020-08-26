@@ -25,7 +25,7 @@ const AdvanceSearchForm = (props) => {
         e.preventDefault()
         localStorage.setItem('advanceSearch', JSON.stringify(form))
         props.getFetchAdvance(true)
-        props.history.push('/recipes');
+        props.history.push('/advance-search/recipes');
     }
 
 

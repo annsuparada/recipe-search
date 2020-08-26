@@ -24,7 +24,6 @@ const Homepage = (props) => {
     return (
         <div className="homepage">
             <div className="header">
-        {console.log('fatchAdvance', props.fatchAdvance)}
                 <h3>Recipe Finder</h3>
                 {!props.toggleAdvanceState ?
                     <>

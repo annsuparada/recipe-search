@@ -11,7 +11,7 @@ const SearchForm = (props) => {
     }
     return (
         <div className="search">
-            <Form onSubmit={props.getSearch} style={{ width: "100%", display: 'flex', justifyContent: 'center' }} >
+            <Form onSubmit={props.getSearch} className="center" >
                 <Input
                     style={{ maxWidth: "500px" }}
                     placeholder="Find a recipe"
@@ -31,12 +31,11 @@ const SearchForm = (props) => {
                     Search
                 </Button>
             </Form>
-            <div style={{ maxWidth: "100px", margin: "0 auto" }}>
+            <div className="center">
                 <Button
-                    
                     onClick={toggle}
                     size="small"
-                    style={{ marginTop: 15 }}
+                    style={{ marginTop: 15, maxWidth: "120px" }}
                 >
                     Advance Search
                 </Button>

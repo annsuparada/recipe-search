@@ -5,6 +5,7 @@ import Navigation from './components/navigation/Navigation';
 import Footer from './components/footer/Footer';
 import RecipePage from './components/recipeResults/RecipePage';
 import Homepage from './components/homepage/Homepage';
+import AdvanceSearchResults from './components/recipeResults/AdvanceSearchResults';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/recipes/" component={MainSearch} />
-          <Route exact path="/recipe/:query/:id" component={RecipePage} />
+          <Route path="/advance-search/recipes" component={AdvanceSearchResults} />
+          <Route path="/recipe/:query/:id" component={RecipePage} />
         </Switch>
       </div>
       <Footer />

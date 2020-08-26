@@ -7,9 +7,8 @@ import { Spin, Alert } from 'antd';
 import SearchForm from '../Form/SearchForm';
 
 const MainSearch = (props) => {
-    const form = JSON.parse(localStorage.getItem("advanceSearch"));
+
     const prevSearch = localStorage.getItem("lastKey");
-    const fatchAdvance = localStorage.getItem("fatchAdvance");
     const [state, setState] = useState({ searchTerm: "" });
     const [query, setQuery] = useState({ ingredeint: "pizza" });
 
@@ -35,18 +34,11 @@ const MainSearch = (props) => {
     }
 
     useEffect(() => {
-       
-            if (form !== null) {
-                props.getAdvanceRecipes(form.recipe, form.minCalories, form.maxCalories,
-                    form.minCarbs, form.maxCarbs, form.minProtein, form.maxProtein,
-                    form.minFat, form.maxFat, form.diet, form.intolerances)
-            }
-        
-            if (prevSearch === null) {
-                localStorage.setItem('lastKey', query.ingredeint)
-            }
-            handleSubmit()
-    
+        if (prevSearch === null) {
+            localStorage.setItem('lastKey', query.ingredeint)
+        }
+        handleSubmit()
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query.ingredeint])
 
@@ -56,10 +48,6 @@ const MainSearch = (props) => {
         <div className="main-search">
             {props.isLoading ? <Spin size="large" tip="Loading..." style={{ margin: "300px auto" }} /> :
                 <>
-                    {console.log('props.advanceSearchRecipes', props.advanceSearchRecipes)}
-                    {console.log('props.recipes', props.recipes)}
-                    {console.log('fatchAdvance', fatchAdvance)}
-                    {/* handle error */}
                     {props.error ?
                         <Alert
                             message="Error"
@@ -79,37 +67,20 @@ const MainSearch = (props) => {
                             />
 
                             <div className="recipes-container">
-                                {props.recipes.length === 0 && props.advanceSearchRecipes.length === 0 ?
+                                {props.recipes.length === 0 ?
                                     <Alert message={`No result of "${prevSearch}" Plaese try again!`} type="info" /> :
                                     <>
-                                        {props.advanceSearchRecipes.length > 0 ?
-                                            <>
-                                                {
-                                                    props.advanceSearchRecipes.map(recipe => (
-                                                        <RecipeCard
-                                                            key={recipe.id}
-                                                            id={recipe.id}
-                                                            title={recipe.title}
-                                                            image={recipe.image}
-                                                            prevSearch={prevSearch}
-                                                        />
-                                                    ))
-                                                }
-                                            </> :
-                                            <>
-
-                                                {
-                                                    props.recipes.map(recipe => (
-                                                        <RecipeCard
-                                                            key={recipe.id}
-                                                            id={recipe.id}
-                                                            title={recipe.title}
-                                                            image={recipe.image}
-                                                            prevSearch={prevSearch}
-                                                        />
-                                                    ))
-                                                }
-                                            </>
+                                        {
+                                            props.recipes.map(recipe => (
+                                                <RecipeCard
+                                                    key={recipe.id}
+                                                    id={recipe.id}
+                                                    title={recipe.title}
+                                                    image={recipe.image}
+                                                    prevSearch={prevSearch}
+                                                />
+                                            ))
+                                        }
                                         }
 
                                     </>
@@ -127,8 +98,6 @@ const mapStateToProps = state => ({
     recipes: state.recipesReducer.recipes,
     isLoading: state.recipesReducer.isLoading,
     error: state.recipesReducer.error,
-    advanceSearchRecipes: state.recipesReducer.advanceSearchRecipes,
-    fatchAdvance: state.recipesReducer.fatchAdvance,
 })
 
 export default withRouter(

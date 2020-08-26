@@ -108,9 +108,6 @@ img {
   justify-content: center;
 }
 .recipes-container {
-  // display: grid;
-  // grid-template-columns: repeat(4, 24%);
-  // grid-gap: 10px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -119,6 +116,12 @@ img {
 .search {
   min-height: 5vh;
   padding: 20px 20px 40px 20px;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media #{$mobile} {
