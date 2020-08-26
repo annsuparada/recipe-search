@@ -18,6 +18,7 @@ const AdvanceSearchResults = (props) => {
         } else {
             props.history.push('/')
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const getSearch = (query) => {
