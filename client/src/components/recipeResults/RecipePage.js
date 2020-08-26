@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getRecipeById } from '../store/actions/index';
+import { getRecipeById } from '../../store/actions/index';
 import { Spin, Alert } from 'antd';
 import NextRecipes from './NextRecipes';
-import ImageCard from './CardComponents/ImageCard';
-import IngredientsCard from './CardComponents/IngredientsCard';
-import DirectionsCard from './CardComponents/DirectionsCard';
-import NutritionCard from './CardComponents/NutritionCard';
+import ImageCard from '../CardComponents/ImageCard';
+import IngredientsCard from '../CardComponents/IngredientsCard';
+import DirectionsCard from '../CardComponents/DirectionsCard';
+import NutritionCard from '../CardComponents/NutritionCard';
 import { Button } from 'antd';
 
 const RecipePage = (props) => {

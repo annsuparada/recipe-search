@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getRecipes, getAdvanceRecipes } from '../store/actions/index';
-import RecipeCard from './CardComponents/RecipeCard';
+import { getRecipes, getAdvanceRecipes } from '../../store/actions/index';
+import RecipeCard from '../CardComponents/RecipeCard';
 import { Spin, Alert } from 'antd';
-import SearchForm from './Form/SearchForm';
+import SearchForm from '../Form/SearchForm';
 
 const MainSearch = (props) => {
     const form = JSON.parse(localStorage.getItem("advanceSearch"));

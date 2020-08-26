@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
-import { getRecipes, getAdvanceRecipes } from '../store/actions/index';
+import { getRecipes, getAdvanceRecipes } from '../../store/actions/index';
 import { Card } from 'antd';
 const { Meta } = Card;
 
