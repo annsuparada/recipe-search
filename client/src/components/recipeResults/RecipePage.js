@@ -17,6 +17,7 @@ const RecipePage = (props) => {
     const query= props.match.params.query;
     
     useEffect(() => {
+        window.scrollTo(0, 0);
         props.getRecipeById(id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

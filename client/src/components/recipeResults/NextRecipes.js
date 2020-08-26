@@ -7,6 +7,7 @@ const { Meta } = Card;
 const NextRecipes = (props) => {
     const form = JSON.parse(localStorage.getItem("advanceSearch"));
     const currentId = props.currentId;
+
     useEffect(() => {
         if (form !== null) {
             props.getAdvanceRecipes(form.recipe, form.minCalories, form.maxCalories,
@@ -15,7 +16,6 @@ const NextRecipes = (props) => {
         } else {
             props.getRecipes(props.query)
         }
-        console.log('forom', form)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -23,7 +23,8 @@ const NextRecipes = (props) => {
         <div className="next-recipe-container">
             <h4>More Recipes</h4>
             <div className="next-recipe-card">
-
+                {console.log('advanceSearchRecipes', props.advanceSearchRecipes)}
+                {console.log('props.recipes', props.recipes)}
                 {props.recipes.filter(item => item.id !== Number(currentId))
                     .slice(0, 6).map(item => (
                         <div key={item.id}>
@@ -53,8 +54,6 @@ const NextRecipes = (props) => {
                         </div>
                     ))}
             </div>
-
-{console.log('props.advanceSearchRecipes',props.advanceSearchRecipes)}
         </div>
     );
 }
