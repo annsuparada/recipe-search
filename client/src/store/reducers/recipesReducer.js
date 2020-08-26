@@ -9,7 +9,6 @@ import {
     FETCH_ADVANCE_SEARCH_SUCCESS,
     FETCH_ADVANCE_SEARCH_FAILURE,
     TOGGLE_ADVANCE_SEARCH,
-    FETCH_ADVANCE,
 
 } from '../actions/index';
 
@@ -21,7 +20,6 @@ export const initialState = {
     recipe: [],
     nextRecipes: [],
     toggleAdvanceState: false,
-    fatchAdvance: false,
 }
 
 export const recipesReducer = (state = initialState, action) => {
@@ -84,11 +82,6 @@ export const recipesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 toggleAdvanceState: action.payload,
-            }
-        case FETCH_ADVANCE:
-            return {
-                ...state,
-                fatchAdvance: action.payload,
             }
         default:
             return state

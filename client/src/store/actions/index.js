@@ -21,8 +21,6 @@ export {
 export {
     getAdvanceRecipes,
     toggleAdvanceSearch,
-    getFetchAdvance,
-    FETCH_ADVANCE,
     TOGGLE_ADVANCE_SEARCH,
     FETCH_ADVANCE_SEARCH_START,
     FETCH_ADVANCE_SEARCH_SUCCESS,

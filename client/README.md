@@ -50,13 +50,13 @@
     - [x] minFat, maxFat
 
 ##### Dropdown
-- [ ] Filter by diet plan
+- [x] Filter by diet plan
     - [x] Gluten Free
     - [x] Ketogenic
     - [x] Vegetarian
     - [x] Vegan
     
-- [ ] Filter by allergy ingredients (intolerances)
+- [x] Filter by allergy ingredients (intolerances)
     - [x] Dairy, Egg, Gluten, Grain
     - [x] Peanut, Seafood, Sesame, Shellfish
     - [x] Soy, Sulfite, Tree Nut, Wheat

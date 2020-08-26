@@ -7,14 +7,7 @@ export const FETCH_ADVANCE_SEARCH_START = "FETCH_ADVANCE_SEARCH_START";
 export const FETCH_ADVANCE_SEARCH_SUCCESS = "FETCH_ADVANCE_SEARCH_SUCCESS";
 export const FETCH_ADVANCE_SEARCH_FAILURE = "FETCH_ADVANCE_SEARCH_FAILURE";
 export const TOGGLE_ADVANCE_SEARCH = "TOGGLE_ADVANCE_SEARCH";
-export const FETCH_ADVANCE = "FETCH_ADVANCE";
 const listCount = 20;
-
-export const getFetchAdvance = (boolean) => dispatch => {
-    localStorage.setItem("fatchAdvance", boolean)
-    let result = localStorage.getItem("fatchAdvance")
-    dispatch({ type: FETCH_ADVANCE, payload: result })
-}
 
 export const toggleAdvanceSearch = (boolean) => dispatch => {
     dispatch({ type: TOGGLE_ADVANCE_SEARCH, payload: boolean })

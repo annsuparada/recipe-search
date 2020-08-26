@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getAdvanceRecipes, getFetchAdvance } from '../../store/actions/index';
+import { getAdvanceRecipes } from '../../store/actions/index';
 import { Form, Input, Select, Tooltip, Button, InputNumber } from 'antd';
 
 const { Option } = Select;
@@ -24,7 +24,6 @@ const AdvanceSearchForm = (props) => {
     const getResults = (e) => {
         e.preventDefault()
         localStorage.setItem('advanceSearch', JSON.stringify(form))
-        props.getFetchAdvance(true)
         props.history.push('/advance-search/recipes');
     }
 
@@ -245,6 +244,6 @@ const mapStateToProps = state => ({
 export default withRouter(
     connect(
         mapStateToProps,
-        { getAdvanceRecipes, getFetchAdvance }
+        { getAdvanceRecipes }
     )(AdvanceSearchForm)
 );

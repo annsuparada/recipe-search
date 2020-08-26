@@ -18,7 +18,7 @@ const FingerfoodList = (props) => {
             {props.isLoading ? <Spin size="large" tip="Loading..." /> :
             <>
                 {
-                    props.recipesByType.slice(0,9).map(recipe => (
+                    props.recipesByType.slice(0,8).map(recipe => (
                         <RecipeCard
                             key={recipe.id}
                             id={recipe.id}
